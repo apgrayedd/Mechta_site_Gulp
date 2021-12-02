@@ -1,0 +1,145 @@
+.searcher {
+  position: relative;
+
+  flex-grow: 1;
+  max-width: 197px;
+  height: 29.42px;
+
+  display: flex;
+  flex-direction: row;
+
+  @media (min-width: 768px) {
+    height: 48px;
+    max-width: 600px;
+
+    margin-left: 26px;
+    margin-right: 30px;
+
+    margin-bottom: 17px;
+  }
+
+  @media (min-width: 1440px) {
+    margin-left: 20px;
+    margin-right: 80px;
+  }
+}
+
+.searcher__searcher {
+  border: none;
+  background-color: transparent;
+
+  padding: 0;
+}
+
+.searcher__searcher__img {
+  position: absolute;
+
+  width: 11px;
+  height: 16.47px;
+
+  top: 50%;
+  transform: translateY(-50%);
+
+  @media (min-width: 768px) {
+    width: 19px;
+    height: 30px;
+
+    margin-left: 14px;
+  }
+}
+
+.searcher__searcher__img--path {
+  fill: @searcher_color;
+}
+
+.searcher__searcher__img--line {
+  stroke: @searcher_color;
+}
+
+.searcher__input {
+  outline: none;
+  width: 100%;
+
+  font-family: "MA Medium", "Arial", sans-serif;
+  font-style: normal;
+  font-weight: bold;
+
+  background-color: transparent;
+  color: @header_text_color;
+
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.25);
+
+  padding-left: 25px;
+
+  border: 2px solid @searcher_color;
+  box-sizing: border-box;
+  border-radius: 10px;
+
+  font-size: 13px;
+  line-height: 16px;
+
+  &::placeholder {
+    color: @header_text_color;
+    opacity: 0.75;
+  }
+
+  &:hover {
+    border: 2px solid white;
+  }
+
+  &:focus {
+    border: 2px solid white;
+    background-color: rgba(0, 255, 87, 0.6);
+  }
+
+  &:active {
+    border: 2px solid white;
+  }
+
+  @media (min-width: 768px) {
+    border: 3px solid @searcher_color;
+
+    font-size: 20px;
+    line-height: 24px;
+
+    padding-left: 48px;
+
+    box-shadow: 0 1px 1px 2px rgba(0, 0, 0, 0.25);
+
+    &:hover {
+      border: 3px solid white;
+    }
+
+    &:focus {
+      border: 3px solid white;
+    }
+
+    &:active {
+      border: 3px solid white;
+    }
+  }
+}
+
+.searcher__button {
+  display: none;
+
+  @media (min-width: 1440px) {
+    display: block;
+
+    position: absolute;
+    right: 0;
+
+    width: 60px;
+    height: 48px;
+
+    background-color: @searcher_button_color;
+    border-radius: 0 10px 10px 0;
+    border: 0;
+
+    font-family: "MA Medium", "Arial", sans-serif;
+    font-size: 13px;
+    line-height: 16px;
+
+    color: @searcher_text_button_color;
+  }
+}

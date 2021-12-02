@@ -108,6 +108,7 @@ exports.sprite = sprite;
 const copy = (done) => {
   gulp.src([
     "source/fonts/*.{woff2,woff}",
+    "source/img/*.png",
     "source/*.ico",
     "source/img/**/*.svg",
     "!source/img/sprite.svg",
@@ -121,7 +122,18 @@ const copy = (done) => {
 
 exports.copy = copy;
 
+//copy Normalize
 
+const copyNormalize = (done) => {
+  del("build/css/normalize.css")
+  gulp.src([
+    "source/css/*.css",
+  ])
+  .pipe(gulp.dest("build/css"));
+  done();
+}
+
+exports.copyNormalize = copyNormalize;
 // Clean
 
 const clean = () => {
@@ -155,9 +167,9 @@ const reload = (done) => {
 // Watcher
 
 const watcher = () => {
-  gulp.watch("source/less/**/*.less", gulp.series(styles));
+  gulp.watch("source/less/**/*.less", gulp.series(styles, copyNormalize));
   gulp.watch("source/js/*.js", gulp.series(js));
-  gulp.watch("source/*.html", gulp.series(html, reload));
+  gulp.watch("source/*.html", gulp.series(html, reload, copyNormalize));
 }
 
 // Build
